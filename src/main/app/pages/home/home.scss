@@ -1,0 +1,46 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.home {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__content {
+    margin-top: 100px;
+    max-width: 700px;
+    padding: 0 20px;
+
+    @include for-desktop-up {
+      margin-top: 200px;
+    }
+
+    @include for-big-desktop-up {
+      margin-top: 300px;
+    }
+  }
+
+  &__description-screen {
+    background: #F5F5F5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    @include for-phone-only {
+      background: transparent;
+    }
+  }
+
+  &__other-resources-screen {
+    background: #F5F5F5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    @include for-phone-only {
+      background: transparent;
+      margin-top: 0;
+    }
+  }
+}

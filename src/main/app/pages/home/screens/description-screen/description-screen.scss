@@ -1,0 +1,125 @@
+@import "../../../../common/vars";
+@import "../../../../common/mixins";
+
+.description-screen {
+  margin-top: 233px;
+  margin-bottom: 142px;
+  max-width: 936px;
+  padding: 0 16px;
+
+  @include for-phone-only {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  @include for-desktop-up {
+    margin-top: 200px;
+  }
+
+  @include for-big-desktop-up {
+    margin-top: 300px;
+  }
+
+  &__green-line {
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  &__flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 844px;
+    margin: auto;
+    margin-top: 72px;
+    @include for-phone-only {
+      width: 100%;
+      flex-direction: column;
+      margin-top: 0;
+    }
+  }
+
+  &__flex-container_right {
+    justify-content: flex-end;
+  }
+
+  &__content-block {
+    padding: 24px 32px;
+    width: 364px;
+    border: 1px solid #39CCB0;
+    border-radius: 18px;
+    font-family: $font-family;
+    box-sizing: border-box;
+    @include for-phone-only {
+      width: 100%;
+      margin: 0;
+      margin-top: 32px;
+      box-sizing: border-box;
+      padding: 16px 24px;
+    }
+  }
+
+  &__flamenco-image {
+    width: 58px;
+    position: absolute;
+    margin-top: -90px;
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-family: $font-family;
+    color: #315A52;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+    @include for-phone-only {
+      color: #333333;
+      font-size: 16px;
+      text-align: left;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+  }
+
+  &__content-title {
+    font-family: $font-family;
+    color: #315A52;
+    margin: 0;
+    font-size: 16px;
+    margin-bottom: 16px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+
+  &__content-text {
+    font-family: $font-family;
+    color: #315A52;
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__content-block_development {
+    border-style: dashed;
+    border-color: #FB8254;
+  }
+
+  &__content-development-label {
+    position: absolute;
+    font-family: $font-family;
+    font-size: 14px;
+    color: #FB8254;
+    margin-top: -34px;
+    background: #F5F5F5;
+    padding: 0 8px;
+    margin-left: -8px;
+    @include for-phone-only {
+      background: #ffffff;
+      margin-top: -25px;
+    }
+  }
+}

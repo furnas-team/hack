@@ -1,0 +1,141 @@
+@import "../../common/vars";
+@import "../../common/mixins";
+
+.full-documents-list {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__content {
+    margin-top: 100px;
+    max-width: 700px;
+    padding: 0 20px;
+    background-color:#ffffff; /*don't remove, it fix pdf background-color issue*/
+  }
+
+  &__intro {
+    font-family: $font-family;
+    font-size: 16px;
+    color: #333333;
+    line-height: 24px;
+    margin-top: 64px;
+    margin-bottom: 24px;
+  }
+
+  &__video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin-bottom: 48px;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__contents {
+
+  }
+
+  &__contents-item {
+    color: #15B798;
+    margin-bottom: 16px;
+  }
+
+  &__section {
+    padding-top: 90px;
+    margin-top: -62px;
+    margin-bottom: 48px;
+  }
+
+  &__prices-subtitle {
+    margin-bottom: 24px;
+  }
+
+  &__video-subtitle {
+    margin-bottom: 24px;
+  }
+
+  &__paragraph {
+    margin-bottom: 48px;
+    font-family: $font-family;
+    font-size: 16px;
+    color: #333333;
+    line-height: 24px;
+  }
+
+  &__prices-container {
+    border: 1px solid #15B798;
+    border-radius: 5px;
+  }
+
+  &__prices-table {
+    border-collapse: collapse;
+    thead {
+      background: #15B798;
+      color: #FFFFFF;
+      text-align: left;
+      th {
+        padding: 16px 24px;
+        font-weight: 500;
+        &:first-child {
+          border-right: 1px solid #FFFFFF;
+        }
+      }
+    }
+    tbody {
+      color: #15B798;
+      td {
+        border: 1px solid #15B798;
+        padding: 16px 24px;
+        &:first-child {
+          border-left: none;
+          width: 160px;
+        }
+      }
+      tr {
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__download-list-button {
+    margin-top: 48px;
+    @include for-phone-only {
+      margin-top: 0;
+    }
+  }
+
+  &__other-countries {
+    color: #fff !important;
+  }
+
+  &__flamenco-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 160px;
+    margin-top: 160px;
+
+    @include for-phone-only {
+      margin-bottom: 48px;
+      margin-top: 48px;
+    }
+  }
+
+  &__flamenco-image {
+    width: 77px;
+    height: 160px;
+  }
+}
