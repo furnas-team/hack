@@ -3,6 +3,7 @@ import {call, fork, select, takeEvery} from 'redux-saga/effects';
 import {getData, isApiDataSuccess} from '../../models/ApiDataModel';
 import _map from 'lodash/map';
 import isEmpty from 'lodash/isEmpty';
+import last from 'lodash/last';
 
 export const HomeAction = {
   GET_ROUTES: 'HomeAction.GET_ROUTES',
@@ -116,7 +117,7 @@ function* getRoutesSaga() {
       // The start point of the route:
       'waypoint0': `geo!${route.points[0].coordinate.latitude},${route.points[0].coordinate.longitude}`,
       // The end point of the route:
-      'waypoint1': `geo!${route.points[1].coordinate.latitude},${route.points[1].coordinate.longitude}`,
+      'waypoint1': `geo!${last(route.points).coordinate.latitude},${last(route.points).coordinate.longitude}`,
       // To retrieve the shape of the route we choose the route
       // representation mode 'display'
       'representation': 'display',
