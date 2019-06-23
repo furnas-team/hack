@@ -1,48 +1,82 @@
 import React from 'react';
 import './home.scss';
 import {Helmet} from 'react-helmet';
-import {Header} from '../../components/header/Header';
-import {MainScreen} from "./screens/main-screen/MainScreen";
-import {DescriptionScreen} from "./screens/description-screen/DescriptionScreen";
-import {ChosePersonScreen} from './screens/chose-person-screen/ChosePersonScreen';
-import {MobileExplanationScreen} from './screens/mobile-explanation-screen/MobileExplanationScreen';
-import {OtherResourcesScreen} from './screens/other-resources-screen/OtherResourcesScreen';
-import {Footer} from '../../components/footer/Footer';
+import {getMap, getPlatform, getRoutesAction, setFromAction, setToAction, test2Action, testAction} from './HomePageModel';
+import {Button} from '../../components/button/Button';
+import {connect} from 'react-redux';
+import {LocationSelect} from '../../components/location-select/LocationSelect';
 
 
-export class HomePage extends React.Component {
+class HomePageComponent extends React.Component {
 
   componentDidMount() {
-    window.scrollTo(0, 0);
+    var platform = getPlatform();
+    // Obtain the default map types from the platform object
+    var map = getMap();
   }
+
+  handleClick = () => {
+    this.props.getRoutes();
+  };
+
+  handleFromSelect = (location) => {
+    this.props.setFrom(location);
+  };
+
+  handleToSelect = (location) => {
+    this.props.setTo(location);
+  };
 
   render() {
     return (
       [
         <Helmet key="1">
-          <title>Заполение анкеты на визу в Испанию</title>
+          <title>Навигатор по Тульской области</title>
           <meta name="description"
-                content="Заполнение анкеты на визу онлайн. Беспллатное формирование пакета документов для самостоятельного получения визы в визовом центре Испании."/>
-          <link rel="canonical" href="https://visa.furnas.ru"/>
+                content="Построение маршрута по городам Тульской области на общественном транспорте"/>
+          <link rel="canonical" href="https://hack.ru"/>
         </Helmet>,
         <div className="home"
              key="2">
-          <Header/>
-          <MainScreen/>
-          <MobileExplanationScreen/>
-          <div className="home__description-screen">
-            <DescriptionScreen/>
+          <div className="home__panel">
+            <div className="home__panel-title">
+              <div>
+                Поиск маршрутов
+              </div>
+            </div>
+            <div>
+              <LocationSelect id="from"
+                              onLocationSelect={this.handleFromSelect}/>
+            </div>
+            <div>
+              <LocationSelect id="to"
+                              onLocationSelect={this.handleToSelect}/>
+            </div>
+            <div className="home__button-container">
+              <Button onClick={this.handleClick}>
+                Построить
+              </Button>
+            </div>
           </div>
-          <div id="choose-person">
-            <ChosePersonScreen/>
+          <div id="mapContainer">
           </div>
-          <div className="home__other-resources-screen">
-            <OtherResourcesScreen/>
-          </div>
-          <Footer/>
+          {/*<Header/>*/}
+          {/*<Footer/>*/}
         </div>
       ]
     );
   }
 
 }
+
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  getRoutes: () => dispatch(getRoutesAction()),
+  setTo: (to) => dispatch(setToAction(to)),
+  setFrom: (from) => dispatch(setFromAction(from)),
+});
+
+export const HomePage = connect(mapStateToProps, mapDispatchToProps)(HomePageComponent);
+
+

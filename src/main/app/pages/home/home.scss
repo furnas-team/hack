@@ -22,25 +22,40 @@
     }
   }
 
-  &__description-screen {
-    background: #F5F5F5;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    @include for-phone-only {
-      background: transparent;
-    }
+  &__panel {
+    background: #ffffff;
+    border-radius: 25px;
+    width: 504px;
+    height: 250px;
+    position: absolute;
+    left: 16px;
+    top: 16px;
   }
 
-  &__other-resources-screen {
-    background: #F5F5F5;
+  &__panel-title {
+    background: #008577;
+    color: #ffffff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+
+  &__button-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 150px;
-    @include for-phone-only {
-      background: transparent;
-      margin-top: 0;
-    }
+    align-items: center;
+    height: 98px;
   }
+}
+
+#mapContainer {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
 }

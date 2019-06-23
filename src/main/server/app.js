@@ -35,13 +35,16 @@ app.get("*", (req, res) => {
       {helmet.meta.toComponent()}
       {helmet.link.toComponent()}
       {helmet.script.toComponent()}
-      <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500&amp;subset=cyrillic" rel="stylesheet"/>
+      <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+              type="text/javascript" charSet="utf-8"></script>
+      <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+              type="text/javascript" charSet="utf-8"></script>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap&subset=cyrillic" rel="stylesheet"/>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>
     <body>
     <div id="root" dangerouslySetInnerHTML={ {__html: appString} }>
     </div>
-    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
     <script src="/hack.client.js"></script>
     </body>
     </html>));

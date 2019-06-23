@@ -1,36 +1,28 @@
 import React from 'react';
 import {HomePage} from './pages/home/HomePage';
+import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router-dom'
 import './seo/sitemap.xml';
 import './seo/robots.txt';
 import {Helmet} from 'react-helmet';
-import {FullDocumentsListPage} from './pages/full-documents-list/FullDocumentsListPage';
 import {createDocumentsListRoute, createFullDocumentsListRoute, createHomeRoute, createVisaApplicationFormRoute} from './helpers/appRoutes';
-import {DocumentsListPage} from './pages/documents-list/DocumentsListPage';
-import {VisaApplicationFormPage} from './pages/visa-application-form/VisaApplicationFormPage';
+import {configureStore} from './configureStore';
 
+
+const store = configureStore();
+store.subscribe(() => window.__renderedState = store.getState());
 
 export class App extends React.Component {
 
   render() {
 
     return ([
-      <Switch key="1">
-        <Route exact path={createFullDocumentsListRoute()}
-               component={FullDocumentsListPage}/>
-        <Route path={createDocumentsListRoute(':userType')}
-               render={({match}) => (
-                 <DocumentsListPage userType={match.params.userType}/>
-               )}/>
-        <Route exact path={createDocumentsListRoute('')}
-               component={FullDocumentsListPage}/>
-        <Route exact path={createVisaApplicationFormRoute(':step?')}
-               render={({match}) => (
-                 <VisaApplicationFormPage step={match.params.step}/>
-               )}/>
-        <Route path={createHomeRoute()}
-               component={HomePage}/>
-      </Switch>,
+      <Provider store={store}>
+        <Switch key="1">
+          <Route path={createHomeRoute()}
+                 component={HomePage}/>
+        </Switch>
+      </Provider>,
       <Helmet key="2">
         <link rel="icon" sizes="192x192" href={require('./images/favicon-192x192.png')}/>
         <link rel="icon" sizes="144x144" href={require('./images/favicon-144x144.png')}/>
