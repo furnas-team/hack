@@ -39,6 +39,12 @@ app.get("*", (req, res) => {
               type="text/javascript" charSet="utf-8"></script>
       <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
               type="text/javascript" charSet="utf-8"></script>
+      <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js"
+              type="text/javascript" charSet="utf-8"></script>
+      <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js"
+              type="text/javascript" charSet="utf-8"></script>
+      <link rel="stylesheet" type="text/css"
+            href="http://js.api.here.com/v3/3.0/mapsjs-ui.css"/>
       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap&subset=cyrillic" rel="stylesheet"/>
       <link rel="stylesheet" type="text/css" href="/styles.css"/>
     </head>

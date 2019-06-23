@@ -132,7 +132,7 @@ function* resetSearchResultSaga({payload: {id}}) {
 }
 
 function* watch() {
-  yield debounce(500, LocationSelectAction.SEARCH_LOCATIONS, searchLocationsSaga, LocationSelectAction.RESET_SEARCH_RESULT);
+  yield debounce(100, LocationSelectAction.SEARCH_LOCATIONS, searchLocationsSaga, LocationSelectAction.RESET_SEARCH_RESULT);
   yield takeEvery(LocationSelectAction.RESET_SEARCH_RESULT, resetSearchResultSaga);
 }
 

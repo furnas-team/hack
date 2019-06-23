@@ -44,11 +44,20 @@ class HomePageComponent extends React.Component {
                 Поиск маршрутов
               </div>
             </div>
-            <div>
+            <div className="home__route">
+              Маршрут
+            </div>
+            <div className="home__from">
+              <div className="home__a">
+                A
+              </div>
               <LocationSelect id="from"
                               onLocationSelect={this.handleFromSelect}/>
             </div>
-            <div>
+            <div className="home__to">
+              <div className="home__b">
+                B
+              </div>
               <LocationSelect id="to"
                               onLocationSelect={this.handleToSelect}/>
             </div>

@@ -26,10 +26,11 @@
     background: #ffffff;
     border-radius: 25px;
     width: 504px;
-    height: 250px;
+    height: 400px;
     position: absolute;
     left: 16px;
     top: 16px;
+    z-index: 1;
   }
 
   &__panel-title {
@@ -51,11 +52,43 @@
     align-items: center;
     height: 98px;
   }
+
+  &__to {
+    width: 330px;
+    align-self: center;
+    margin: 24px auto;
+  }
+
+  &__from {
+    width: 330px;
+    align-self: center;
+    margin: 24px auto;
+  }
+
+  &__route {
+    font-family: Montserrat-SemiBold;
+    font-size: 16px;
+    color: #3E5662;
+    text-align: center;
+    margin-top: 38px;
+    margin-left: -223px;
+  }
+  &__a {
+    position: absolute;
+    z-index: 1;
+    margin-left: -28px;
+    margin-top: 13px;
+  }
+  &__b {
+    position: absolute;
+    z-index: 1;
+    margin-left: -28px;
+    margin-top: 13px;
+  }
 }
 
 #mapContainer {
   width: 100vw;
   height: 100vh;
   position: absolute;
-  z-index: -1;
 }
